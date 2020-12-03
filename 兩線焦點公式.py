@@ -39,9 +39,13 @@ def cross_point_dot(x1, y1, vx1, vy1, x2, y2, x3, y3, ):
     this function is same as above. But in this case, one of lines has starting point and ending point.
     If the point two line cross out of the line, function should return None.
     '''
-    p = cross_point(x1, y1, vx1, vy1, x2, y2, x3 - x2, y3-y1)
-    if x2 <= p[0] <= x3 or x3 <= p[0] <= x2:
-        return p
+    p = cross_point(x1, y1, vx1, vy1, x2, y2, x3 - x2, y3-y2)
+    if p:
+        if x2 <= p[0] <= x3 or x3 <= p[0] <= x2:
+            if y2 <= p[1] <= y3 or y3 <= p[1] <= y2:
+                return p
+            else:
+                return None
     else:
         return None
 
